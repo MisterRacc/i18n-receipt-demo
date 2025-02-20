@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -26,9 +29,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "localize": [
-              "es-PR"
-            ],
             "outputPath": "dist/i18n-receipt-demo",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -44,6 +44,12 @@
             "scripts": []
           },
           "configurations": {
+            "en": {
+              "localize": ["en-US"]
+            },
+            "es": {
+              "localize": ["es-PR"]
+            },
             "production": {
               "budgets": [
                 {
@@ -64,29 +70,21 @@
                 }
               ],
               "outputHashing": "all"
-            },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "en"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
-            "production": {
-              "browserTarget": "i18n-receipt-demo:build:production"
+            "en": {
+              "browserTarget": "i18n-receipt-demo:build:en"
             },
-            "development": {
-              "browserTarget": "i18n-receipt-demo:build:development"
+            "es": {
+              "browserTarget": "i18n-receipt-demo:build:es"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "en"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",

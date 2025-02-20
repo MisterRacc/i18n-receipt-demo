@@ -14,7 +14,7 @@
     <table>
       <tr>
         <th i18n>Item</th>
-        <th i18n>Qty</th>
+        <th i18n-ignore>Qty</th>
         <th i18n>Date</th>
         <th i18n>Amount</th>
       </tr>
@@ -30,6 +30,10 @@
         <td i18n class="total-amount-label">Total Amount</td>
         <td class="total-amount">{{129 | currency}}</td>
       </tr>
+      <button (click)="switchLanguage()">
+        Switch to {{ currentLang === 'en-US' ? 'Spanish' : 'English' }}
+      </button>
+      
     </table>
   </section>
 </main>
